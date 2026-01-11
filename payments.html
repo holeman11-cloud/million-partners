@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>입금 체크</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- 왼쪽 메뉴 -->
+    <iframe class="sideMenu" src="menu.html"></iframe>
+
+    <!-- 오른쪽 내용 -->
+    <div class="content">
+      <div class="page">
+        <h1>입금 체크(일별)</h1>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <label>날짜: </label>
+              <input id="payDate" type="date">
+              <button type="button" onclick="loadPage()">불러오기</button>
+            </div>
+
+            <div class="summary">
+              <b>완료:</b> <span id="paidCount">0</span>건 /
+              <b>미입금:</b> <span id="unpaidCount">0</span>건
+              <span id="dirtyBadge" class="dirtyBadge" style="display:none;">저장 안됨</span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:10px;">
+            <label style="display:flex; align-items:center; gap:8px;">
+              <input id="autoLate" type="checkbox" checked>
+              <strong>입금</strong>
+              <span style="opacity:0.7;">(저장 시 미입금이면 연체 처리)</span>
+            </label>
+
+            <button id="saveBtn" type="button" onclick="saveNow()">저장</button>
+          </div>
+        </div>
+
+        <h3>계약 목록</h3>
+
+        <!-- PC: 테이블 -->
+        <div class="pcOnly">
+          <table id="payTable" border="1">
+            <tr>
+              <th>입금완료</th>
+              <th>일 이용료</th>
+              <th>구분</th>
+              <th>이름</th>
+              <th>연락처</th>
+              <th>번호판</th>
+              <th>상태</th>
+              <th>내역</th>
+            </tr>
+          </table>
+        </div>
+
+        <!-- 모바일: 카드형 -->
+        <div id="payCards" class="mobileOnly"></div>
+
+        <h3 style="margin-top:20px;">선택된 계약 입금 내역 (기간 전체)</h3>
+        <div class="card">
+          <div id="historyTitle">아직 선택된 계약이 없습니다.</div>
+
+          <!-- 페이지 버튼 -->
+          <div style="display:flex; gap:8px; align-items:center; margin-top:10px;">
+            <button type="button" id="histPrev">이전</button>
+            <span id="histPage">1 / 1</span>
+            <button type="button" id="histNext">다음</button>
+          </div>
+
+          <table id="historyTable" border="1" style="margin-top:10px;">
+            <tr>
+              <th>날짜</th>
+              <th>입금완료</th>
+              <th>일 이용료</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 순서 중요 -->
+  <script src="storage.js"></script>
+  <script src="payments.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>정산</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <iframe src="menu.html"></iframe>
+
+  <div class="page">
+    <h1>정산</h1>
+
+    <div class="card">
+      <h3>이번 달 요약</h3>
+      <p>이번 달 총 수입: <b id="monthIncome">0원</b></p>
+      <p>연체 계약 수: <b id="lateCount">0건</b></p>
+    </div>
+
+    <h3>연체(미납) 목록</h3>
+    <table id="lateTable" border="1">
+      <tr>
+        <th>구분</th>
+        <th>이름</th>
+        <th>번호판</th>
+        <th>월 이용료</th>
+        <th>상태</th>
+      </tr>
+    </table>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="settlement.js"></script>
+</body>
+</html>

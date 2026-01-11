@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오토바이 관리</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <iframe src="menu.html" style="width:180px; height:100vh; border:none;"></iframe>
+
+  <div class="page">
+    <h1>오토바이 관리</h1>
+
+    <div class="card">
+      <input id="plate" placeholder="번호판 (예: 123가4567)">
+      <input id="model" placeholder="기종 (예: PCX)">
+      <select id="status">
+        <option value="사용가능">사용가능</option>
+        <option value="대여중">대여중</option>
+        <option value="정비중">정비중</option>
+      </select>
+      <button onclick="addBike()">추가</button>
+    </div>
+
+    <table id="bikeTable" border="1">
+      <tr>
+        <th>번호판</th>
+        <th>기종</th>
+        <th>상태</th>
+        <th>삭제</th>
+      </tr>
+    </table>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>

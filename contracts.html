@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>계약 관리</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <iframe src="menu.html"></iframe>
+
+  <div class="page">
+    <h1>계약 관리 (리스/렌트)</h1>
+
+    <div class="card">
+      <select id="cType">
+        <option value="렌트">렌트</option>
+        <option value="리스">리스</option>
+      </select>
+
+      <input id="cName" placeholder="기사/고객 이름">
+      <input id="cPhone" placeholder="연락처">
+      <select id="cBikePlate"></select>
+      <input id="cBikeModel" placeholder="기종(자동)" readonly>
+
+      <input id="cDayFee" type="number" placeholder="1일 이용료(원) 예: 25000" min="0">
+
+      <!-- 자동 계산 표시(수정 불가) -->
+      <input id="cWeekFee" type="text" placeholder="주 이용료(자동)" readonly>
+      <input id="cMonthFee" type="text" placeholder="월 이용료(자동)" readonly>
+
+      <input id="cStart" type="date">
+      <input id="cDays" type="number" placeholder="기간(일) 예: 180" min="1">
+      <input id="cEnd" type="date">
+
+
+      <select id="cStatus">
+        <option value="정상">정상</option>
+        <option value="연체">연체</option>
+        <option value="종료">종료</option>
+      </select>
+
+      <button id="addBtn" onclick="addContract()">계약 추가</button>
+      <button id="updateBtn" onclick="updateContract()" style="display:none;">수정 저장</button>
+      <button id="cancelBtn" onclick="cancelEdit()" style="display:none;">취소</button>
+    </div>
+
+    <table id="contractTable" border="1">
+    <h2 style="margin-top:30px;">삭제된 계약(보관함)</h2>
+
+    <table id="archiveTable" border="1">
+  <tr>
+    <th>구분</th>
+    <th>이름</th>
+    <th>연락처</th>
+    <th>번호판</th>
+    <th>이용료(일/주/월)</th>
+    <th>기간</th>
+    <th>상태</th>
+    <th>삭제일</th>
+    <th>복구</th>
+    <th>완전삭제</th>
+  </tr>
+</table>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="contracts.js"></script>
+</body>
+</html>
